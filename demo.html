@@ -1,0 +1,301 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fierce Landing Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #000 0%, #300 25%, #600 50%, #900 75%, #c00 100%);
+            height: 100vh;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .container {
+            text-align: center;
+            z-index: 10;
+            padding: 2rem;
+        }
+        
+        /* Removed h1 styling */
+        
+        .btn {
+            background: linear-gradient(45deg, #ff0000, #ff6600);
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 1);
+        }
+        
+        .btn:active {
+            transform: scale(0.98);
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+            z-index: -1;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+            transition: all 0.7s ease;
+        }
+        
+        .quote {
+            font-size: 2rem;
+            opacity: 0.9;
+            margin-top: 1rem;
+            font-style: italic;
+            max-width: 700px;
+            line-height: 1.5;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            font-weight: 500;
+        }
+        
+        .flame {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(255,165,0,0.8) 0%, rgba(255,0,0,0.6) 50%, rgba(128,0,0,0.4) 100%);
+            border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+            filter: blur(10px);
+            animation: flicker 3s infinite alternate;
+        }
+        
+        .flame1 {
+            top: 20%;
+            left: 15%;
+        }
+        
+        .flame2 {
+            top: 60%;
+            right: 20%;
+        }
+        
+        .flame3 {
+            bottom: 10%;
+            left: 30%;
+        }
+        
+        .flame4 {
+            top: 30%;
+            right: 25%;
+        }
+        
+        @keyframes pulse {
+            0% {
+                text-shadow: 0 0 15px rgba(255, 0, 0, 0.7), 0 0 30px rgba(255, 0, 0, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 25px rgba(255, 0, 0, 0.9), 0 0 40px rgba(255, 0, 0, 0.7);
+            }
+            100% {
+                text-shadow: 0 0 15px rgba(255, 0, 0, 0.7), 0 0 30px rgba(255, 0, 0, 0.5);
+            }
+        }
+        
+        @keyframes flicker {
+            0%, 100% {
+                opacity: 0.8;
+                transform: scale(1.0) rotate(0deg);
+            }
+            25% {
+                opacity: 0.6;
+                transform: scale(0.95) rotate(5deg);
+            }
+            50% {
+                opacity: 0.9;
+                transform: scale(1.1) rotate(-2deg);
+            }
+            75% {
+                opacity: 0.7;
+                transform: scale(0.98) rotate(3deg);
+            }
+        }
+        @media(max-width:400px){
+            .quote{
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="flame flame1"></div>
+    <div class="flame flame2"></div>
+    <div class="flame flame3"></div>
+    <div class="flame flame4"></div>
+    
+    <div class="container">
+        <button class="btn" onclick="quote()">GET QUOTES</button>
+        <p class="quote">Quote Comes Here</p>
+    </div>
+    <script>
+        const narutoQuotes = [
+          {
+            quote: "I'm not gonna run away, I never go back on my word! That's my nindo: my ninja way!",
+            character: "Naruto Uzumaki",
+            imageUrl: "https://static.wikia.nocookie.net/naruto/images/4/42/Naruto_Part_II.png/revision/latest/scale-to-width-down/350?cb=20170828185234"
+          },
+          {
+            quote: "Those who break the rules are scum, but those who abandon their friends are worse than scum.",
+            character: "Kakashi Hatake",
+            imageUrl: "https://static.wikia.nocookie.net/naruto/images/2/27/Kakashi_Hatake.png/revision/latest/scale-to-width-down/350?cb=20170828185101"
+          },
+          {
+            quote: "The moment people come to know love, they run the risk of carrying hate.",
+            character: "Obito Uchiha",
+            imageUrl: "https://static.wikia.nocookie.net/naruto/images/1/11/Obito_Uchiha.png/revision/latest/scale-to-width-down/350?cb=20161016173637"
+          },
+          {
+            quote: "While you're alive, you need a reason for your existence. Being unable to find one is the same as being dead.",
+            character: "Gaara",
+            imageUrl: "https://static.wikia.nocookie.net/naruto/images/0/0f/Gaara_Part_II.png/revision/latest/scale-to-width-down/350?cb=20170828185014"
+          },
+          {
+            quote: "If you don't like your destiny, don't accept it. Instead, have the courage to change it the way you want it to be.",
+            character: "Naruto Uzumaki",
+            imageUrl: "https://static.wikia.nocookie.net/naruto/images/d/d6/Naruto_Part_I.png/revision/latest/scale-to-width-down/350?cb=20170828185207"
+          },
+          {
+            quote: "When a man learns to love, he must bear the risk of hatred.",
+            character: "Madara Uchiha",
+            imageUrl: "https://static.wikia.nocookie.net/naruto/images/e/ef/Madara_Uchiha.png/revision/latest/scale-to-width-down/350?cb=20130730141407"
+          },
+          {
+            quote: "People live their lives bound by what they accept as correct and true. That's how they define 'reality'. But what does it mean to be 'correct' or 'true'?",
+            character: "Itachi Uchiha",
+            imageUrl: "https://static.wikia.nocookie.net/naruto/images/b/bb/Itachi.png/revision/latest/scale-to-width-down/350?cb=20170828185038"
+          },
+          {
+            quote: "In the ninja world, those who break the rules are scum, that's true, but those who abandon their friends are worse than scum.",
+            character: "Obito Uchiha",
+            imageUrl: "https://static.wikia.nocookie.net/naruto/images/3/37/Obito_young.png/revision/latest/scale-to-width-down/350?cb=20170828185133"
+          },
+          {
+            quote: "Growth occurs when one goes beyond one's limits. Realizing that is also part of training.",
+            character: "Itachi Uchiha",
+            imageUrl: "https://static.wikia.nocookie.net/naruto/images/c/c9/Itachi_Part_1.png/revision/latest/scale-to-width-down/350?cb=20170828185057"
+          },
+          {
+            quote: "Hard work is worthless for those that don't believe in themselves.",
+            character: "Naruto Uzumaki",
+            imageUrl: "https://static.wikia.nocookie.net/naruto/images/9/9e/Naruto_Uzumaki_%28Boruto%29.png/revision/latest/scale-to-width-down/350?cb=20170828185259"
+          },
+          {
+            quote: "If you don't share someone's pain, you can never understand them.",
+            character: "Nagato",
+            imageUrl: "https://static.wikia.nocookie.net/naruto/images/f/f2/Nagato.png/revision/latest/scale-to-width-down/350?cb=20170828190802"
+          },
+          {
+            quote: "I don't want to conquer anything. I just think that the guy with the most freedom in this whole ocean... that's the Pirate King!",
+            character: "Monkey D. Luffy (One Piece crossover joke)",
+            imageUrl: "https://static.wikia.nocookie.net/onepiece/images/e/e5/Monkey_D._Luffy_Anime_Pre_Timeskip_Infobox.png/revision/latest/scale-to-width-down/350?cb=20200402171824"
+          },
+          {
+            quote: "The concept of hope is nothing more than giving up. A word that lacks any substance.",
+            character: "Madara Uchiha",
+            imageUrl: "https://static.wikia.nocookie.net/naruto/images/7/7c/Madara_reincarnated.png/revision/latest/scale-to-width-down/350?cb=20140727231826"
+          },
+          {
+            quote: "A soul becomes strong when it has something to protect.",
+            character: "Haku",
+            imageUrl: "https://static.wikia.nocookie.net/naruto/images/a/a2/Haku.png/revision/latest/scale-to-width-down/350?cb=20170828184953"
+          },
+          {
+            quote: "When people get hurt, they learn to hate... when people hurt others, they become hated and racked with guilt. But knowing that pain allows people to be kind.",
+            character: "Jiraiya",
+            imageUrl: "https://static.wikia.nocookie.net/naruto/images/2/21/Profile_Jiraiya.png/revision/latest/scale-to-width-down/350?cb=20170828190603"
+          },
+          {
+            quote: "Never give up without even trying. Do what you can, no matter how small the effect it may have!",
+            character: "Onoki",
+            imageUrl: "https://static.wikia.nocookie.net/naruto/images/e/e7/Onoki.png/revision/latest/scale-to-width-down/350?cb=20170828191156"
+          },
+          {
+            quote: "The longer you live... The more you realize that reality is just made of pain, suffering and emptiness.",
+            character: "Madara Uchiha",
+            imageUrl: "https://static.wikia.nocookie.net/naruto/images/b/be/Madara%27s_Rinnegan.png/revision/latest/scale-to-width-down/350?cb=20140728000141"
+          },
+          {
+            quote: "Understanding so little about himself, yet trying to understand everything about everyone else.",
+            character: "Sasuke Uchiha",
+            imageUrl: "https://static.wikia.nocookie.net/naruto/images/2/21/Sasuke_Part_2.png/revision/latest/scale-to-width-down/350?cb=20170828185321"
+          },
+          {
+            quote: "Sometimes you must hurt in order to know, fall in order to grow, lose in order to gain because life's greatest lessons are learned through pain.",
+            character: "Pain",
+            imageUrl: "https://static.wikia.nocookie.net/naruto/images/f/f5/Pain_Yahiko.png/revision/latest/scale-to-width-down/350?cb=20170828191228"
+          },
+          {
+            quote: "Even the strongest of opponents always has a weakness.",
+            character: "Itachi Uchiha",
+            imageUrl: "https://static.wikia.nocookie.net/naruto/images/8/8d/Itachi_Sharingan.png/revision/latest/scale-to-width-down/350?cb=20170828190530"
+          },
+          {
+            quote: "It's not the face that makes someone a monster, it's the choices they make with their lives.",
+            character: "Naruto Uzumaki",
+            imageUrl: "https://static.wikia.nocookie.net/naruto/images/2/22/Naruto%27s_Sage_Mode.png/revision/latest/scale-to-width-down/350?cb=20170828185305"
+          },
+          {
+            quote: "Failing doesn't give you a reason to give up, as long as you believe.",
+            character: "Naruto Uzumaki",
+            imageUrl: "https://static.wikia.nocookie.net/naruto/images/4/4b/Naruto%27s_Six_Paths_Sage_Mode.png/revision/latest/scale-to-width-down/350?cb=20170828185246"
+          },
+          {
+            quote: "Power is not will; it is the phenomenon of physically making things happen.",
+            character: "Madara Uchiha",
+            imageUrl: "https://static.wikia.nocookie.net/naruto/images/4/4c/Madara%27s_Susanoo.png/revision/latest/scale-to-width-down/350?cb=20140728000118"
+          },
+          {
+            quote: "A place where someone still thinks about you is a place you can call home.",
+            character: "Jiraiya",
+            imageUrl: "https://static.wikia.nocookie.net/naruto/images/9/9e/Jiraiya_Sage_Mode.png/revision/latest/scale-to-width-down/350?cb=20170828190628"
+          },
+          {
+            quote: "That is my ninja way!",
+            character: "Naruto Uzumaki",
+            imageUrl: "https://static.wikia.nocookie.net/naruto/images/0/09/Naruto_newshot.png/revision/latest/scale-to-width-down/350?cb=20170828185221"
+          }
+        ];
+        
+        console.log(`Total quotes: ${narutoQuotes.length}`);
+        console.log(narutoQuotes);
+        
+        function quote(){
+            var count = Math.floor(Math.random() * narutoQuotes.length);
+            console.log(count);
+            document.querySelector(".quote").innerHTML = narutoQuotes[count].quote;
+        }
+            </script>
+</body>
+</html>
